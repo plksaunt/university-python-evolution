@@ -45,34 +45,9 @@ def period_reveal(elements,period):
            print(real_elements[outer_key])
 #按族显示
 def group_reveal(elements,group):
-    if group=="1A":
-        print(elements[1])
-        print(elements[3])
-        print(elements[11])
-        print(elements[19])
-    elif group=="2A":
-        print(elements[4])
-        print(elements[12])
-        print(elements[20])
-    elif group=="3A":
-        print(elements[5])
-        print(elements[13])
-    elif group=="4A":
-        print(elements[6])
-        print(elements[14])
-    elif group=="5A":
-        print(elements[7])
-        print(elements[15])
-    elif group=="6A":
-        print(elements[8])
-        print(elements[16])
-    elif group=="7A":
-        print(elements[9])
-        print(elements[17])
-    elif group=="8A":
-        print(elements[2])
-        print(elements[10])
-        print(elements[18])
+    for outer_key,inner_dict in elements.items():
+        if inner_dict["group"]==group:
+            print(inner_dict)
 #知识小测试
 def knowledge_test(elements):
     import random
