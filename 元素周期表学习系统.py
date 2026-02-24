@@ -25,30 +25,26 @@ def elements():
     return elements
 #根据元素序列查找
 def number_search(elements,number):
-    found=False
-    for i in elements.keys():
-        if i==number:
-            found=True
-            break
-    return found   
+    return number in elements#直接判断number是否在elements里，返回True，False
 #根据元素符号查找
 def mark_check(elements,mark):
-    found=False
     for outer_key,inner_dict in elements.items():
         if inner_dict["symbol"]==mark:
-            print(elements[outer_key])
-            break            
+           return inner_dict
+    return None            
 #按周期显示
 def period_reveal(elements,period):
    for outer_key,inner_dict in elements.items():
        if inner_dict["period"]==period:
-           print(real_elements[outer_key])
+          return inner_dict
+   return None   
 #按族显示
 def group_reveal(elements,group):
     for outer_key,inner_dict in elements.items():
         if inner_dict["group"]==group:
-            print(inner_dict)
-#知识小测试
+            return inner_dict
+    return None   
+ #知识小测试
 def knowledge_test(elements):
     import random
     number=random.randint(1,20)
@@ -62,29 +58,52 @@ print("元素周期表学习系统")
 print("该程序具有以下功能：1.显示前二十号元素\n2.按原子序数查找\n3.按元素符号查找\n4.按周期显示\n5.按族显示\n6.知识小测试")
 real_elements=elements()
 while True:
-    choice=int(input("请输入功能对应数字(0即为停止程序)"))
+    try:
+        choice=int(input("请输入功能对应数字(0即为停止程序)"))
+    except Exception:
+        print("请输入数字") 
+        continue 
+#用try捕获异常，continue使得这次异常被跳过，进入下一次循环      
     if choice==0:
         print("程序结束")
         break
     if choice<1 or choice>6:
         print("请输入正确数字")
     if choice==1:    
-        print(elements())
+        print(real_elements())
     if choice==2:
-        num=int(input("请输入元素序列：")) 
-        if  number_search(real_elements,num):
-            print(real_elements[num]) 
-        else:
-            print("请输入正确元素序列")      
+        while True:
+            try:           
+                 num=int(input("请输入元素序列：")) 
+            except Exception:
+                print("请输入正确序列")
+                continue     
+            if  number_search(real_elements,num):
+                 print(real_elements[num]) 
+                 break
+            else:
+                 print("请输入正确元素序列")      
     if choice==3:
         mark=input(("请输入元素符号："))
-        mark_check(real_elements,mark)
+        result=mark_check(real_elements,mark)
+        if result:
+            print(result)
+        else:
+            print("请输入正确元素符号")    
     if choice==4:
         period=int(input("请输入周期(1——4)"))
-        period_reveal(real_elements,period)
+        result=period_reveal(real_elements,period)
+        if result:
+            print(result)
+        else:
+            print("请输入正确周期")    
     if choice==5:
         group=input("请输入族数：")  
-        group_reveal(real_elements,group) 
+        result=group_reveal(real_elements,group) 
+        if result:
+            print(result)
+        else:
+            print("请输入正确族数")    
     if choice==6:
         if knowledge_test(real_elements):
             print("回答正确")      
