@@ -1,4 +1,4 @@
-def elements():
+def get_elements():
     #前20号元素字典
     elements = {
     1: {"symbol": "H", "name": "氢", "weight": 1.008, "period": 1, "group": "1A", "category": "非金属"},
