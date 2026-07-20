@@ -48,4 +48,4 @@
 - 相关性分析：计算原子量、电负性、密度、熔点之间的相关系数矩阵
 - 特征工程：温度范围计算、密度分箱（低/中/高）
 - 代码文件：[elements_properties.py](./elements_properties.py)
-> PS：这是我彻底转向 macOS、用 MacBook Pro 写出的第一个程序。（2026款MacBook Pro M5pro芯片，64G内存）
+> PS：这是我彻底转向 macOS、用 MacBook Pro 写出的第一个程序。（2026款MacBook Pro M5pro芯片 64G内存）
