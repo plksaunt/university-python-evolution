@@ -60,3 +60,12 @@
 - 批量生成拟合曲线图并自动保存
 - 将所有参数汇总导出为 CSV 结果表
 - 代码文件：[plot_fluorescence.py](./plot_fluorescence.py)
+
+- ### ✅ 大二上（2026.9）
+**项目：多特征线性回归——手写梯度下降 vs sklearn**
+- 用 sklearn 的 LinearRegression 拟合房屋价格数据（面积、卧室数、房龄、距离）
+- 用 NumPy 手写梯度下降，向量化实现梯度计算和参数更新
+- 手动实现特征缩放（StandardScaler 的底层逻辑）
+- 输出代价函数和 R² 随迭代次数的变化
+- 两个版本 R² 均收敛至 0.99 以上，验证了手写实现的正确性
+- 代码文件：[housedata_regression.py](./housedata_regression.py)
